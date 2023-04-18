@@ -6,7 +6,7 @@
 /*   By: nreher <nreher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:28:22 by nreher            #+#    #+#             */
-/*   Updated: 2023/04/17 15:01:36 by nreher           ###   ########.fr       */
+/*   Updated: 2023/04/18 10:46:12 by nreher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	error_manager(t_all *a, int err)
 	if (err == 1 && a == NULL)
 	{
 		perror("allocation of struct failed");
-		exit(0);
+		exit(1);
 	}
 	error_manager_1(a, err);
 }
@@ -66,7 +66,7 @@ void	error_manager_1(t_all *a, int err)
 			a->i = 0;
 			free(a->args[a->c++]);
 		}
-		exit(0);
+		exit(1);
 	}
 	if (err == 3 && a->args == NULL)
 	{
@@ -92,12 +92,12 @@ void	error_manager_2(t_all *a, int err)
 			a->i = 0;
 			free(a->args[a->c++]);
 		}
-		exit(0);
+		exit(1);
 	}
 	if (err == 2 && a->fd == -1)
 	{
 		perror("infile could not be opened");
-		exit(0);
+		exit(1);
 	}
 	error_manager_3(a, err);
 }
@@ -126,7 +126,7 @@ void	error_manager_3(t_all *a, int err)
 			a->i = 0;
 			free(a->args[a->c++]);
 		}
-		exit(0);
+		exit(1);
 	}
 	error_manager_4(a, err);
 }

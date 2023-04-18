@@ -6,7 +6,7 @@
 /*   By: nreher <nreher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:32:43 by nreher            #+#    #+#             */
-/*   Updated: 2023/04/17 14:42:32 by nreher           ###   ########.fr       */
+/*   Updated: 2023/04/18 10:46:20 by nreher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	error_manager_4(t_all *a, int err)
 			a->i = 0;
 			free(a->args[a->c++]);
 		}
-		exit(0);
+		exit(1);
 	}
 	return ;
 }

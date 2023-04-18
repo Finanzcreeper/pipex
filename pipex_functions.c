@@ -6,7 +6,7 @@
 /*   By: nreher <nreher@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:42:08 by nreher            #+#    #+#             */
-/*   Updated: 2023/04/17 15:04:26 by nreher           ###   ########.fr       */
+/*   Updated: 2023/04/18 10:42:43 by nreher           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 void	urandom_protection(char *argv[])
 {
-	char	*test;
-
-	test = "/dev/urandom";
-	if (argv[1] == test)
-		exit(1);
+	if (ft_strncmp(argv[1], "/dev/urandom", ft_strlen(argv[1])) == 0)
+		exit(0);
 }
 
 void	operation(char ***args, char **paths, int i)
@@ -61,7 +58,7 @@ int	worker(t_all *a, int argc, char *argv[])
 		a->c++;
 	}
 	if (dup2(open(argv[argc - 1], O_RDWR | O_CREAT
-				| O_TRUNC), STDOUT_FILENO) == -1)
+				| O_TRUNC, S_IRUSR | S_IWUSR), STDOUT_FILENO) == -1)
 		return (4);
 	operation(a->args, a->paths, a->c);
 	return (0);
