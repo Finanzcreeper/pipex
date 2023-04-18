@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize
+CFLAGS = -Wall -Werror -Wextra -g3
 MAKEFLAGS = --no-print-directory
 NAME = pipex
 SRC = pipex.c pipex_functions.c pipex_extraerror.c
